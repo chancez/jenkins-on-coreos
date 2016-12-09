@@ -10,6 +10,3 @@ RUN apt-get update && apt-get install -y sudo
 RUN echo "jenkins ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/jenkins
 
 USER jenkins
-
-ENTRYPOINT ["/usr/bin/java"]
-
