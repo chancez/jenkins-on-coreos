@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+# group must be set in order to have permissions to the docker socket
+# (docker on coreos is uid/gid 233)
 exec sudo rkt \
     run \
     --stage1-from-dir=stage1-fly.aci \
@@ -24,7 +26,5 @@ exec sudo rkt \
     docker://quay.io/ecnahc515/jenkins-on-coreos:latest \
     --exec /usr/bin/java \
     --user 10000 \
-    # must be set in order to have permissions to the docker socket
-    # (docker on  coreos is uid/gid 233)
     --group 233 \
     -- "$@"
