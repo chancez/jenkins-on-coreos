@@ -9,6 +9,8 @@ sudo chown jenkins:root /opt/bin/java
 # Add jenkins to rkt groups
 sudo usermod -a -G rkt-admin jenkins
 sudo usermod -a -G rkt jenkins
+# add jenkins to docker group
+sudo usermod -a -G docker jenkins
 
 # put java in path for non-interactive sessions
 rm -f /home/jenkins/.bashrc
