@@ -23,4 +23,6 @@ exec sudo rkt \
     --mount volume=tmp,target=/tmp \
     docker://quay.io/ecnahc515/jenkins-on-coreos:latest \
     --exec /usr/bin/java \
+    --user 10000 \
+    --group 10000 \
     -- "$@"
