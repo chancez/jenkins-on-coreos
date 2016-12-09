@@ -1,0 +1,25 @@
+#!/bin/bash -x
+
+exec sudo rkt \
+    run \
+    --insecure-options=image,ondisk \
+    --interactive \
+    --inherit-env \
+    --volume dns,kind=host,source=/etc/resolv.conf \
+    --mount volume=dns,target=/etc/resolv.conf \
+    --volume jenkins,kind=host,source=/opt/jenkins,readOnly=false \
+    --mount volume=jenkins,target=/opt/jenkins \
+    --volume etc-ssl-certs,kind=host,source=/etc/ssl/certs,readOnly=true \
+    --mount volume=etc-ssl-certs,target=/etc/ssl/certs \
+    --volume usr-share-certs,kind=host,source=/usr/share/ca-certificates,readOnly=true \
+    --mount volume=usr-share-certs,target=/usr/share/ca-certificates \
+    --volume docker,kind=host,source=/usr/bin/docker,readOnly=true \
+    --mount volume=docker,target=/usr/bin/docker \
+    --volume var-run,kind=host,source=/var/run \
+    --mount volume=var-run,target=/var/run \
+    --volume run,kind=host,source=/run,readOnly=false \
+    --mount volume=run,target=/run \
+    --volume tmp,kind=host,source=/tmp,readOnly=false \
+    --mount volume=tmp,target=/tmp \
+    docker://quay.io/ecnahc515/jenkins-on-coreos:latest \
+    -- "$@"
