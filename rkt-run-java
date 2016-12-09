@@ -3,7 +3,6 @@
 exec sudo rkt \
     run \
     --insecure-options=image,ondisk \
-    --interactive \
     --inherit-env \
     --volume dns,kind=host,source=/etc/resolv.conf \
     --mount volume=dns,target=/etc/resolv.conf \
