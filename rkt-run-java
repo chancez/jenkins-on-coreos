@@ -27,4 +27,4 @@ exec sudo rkt \
     --exec /opt/bin/entrypoint.sh \
     --user 10000 \
     --group 233 \
-    -- java
+    -- "$@"
