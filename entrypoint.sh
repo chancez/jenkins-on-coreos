@@ -1,4 +1,4 @@
 #!/bin/bash -ex
 
-mount -o remount,ro /sys/fs/selinux
+sudo mount -o remount,ro /sys/fs/selinux
 exec $0
