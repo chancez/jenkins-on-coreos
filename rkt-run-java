@@ -4,6 +4,7 @@
 # (docker on coreos is uid/gid 233)
 exec sudo rkt \
     run \
+    --stage1-from-dir=stage1-fly.aci \
     --insecure-options=image,ondisk \
     --inherit-env \
     --volume dns,kind=host,source=/etc/resolv.conf \
