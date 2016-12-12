@@ -24,7 +24,7 @@ exec sudo rkt \
     --volume tmp,kind=host,source=/tmp,readOnly=false \
     --mount volume=tmp,target=/tmp \
     docker://quay.io/ecnahc515/jenkins-on-coreos:latest \
-    --exec /usr/bin/java \
+    --exec /opt/bin/entrypoint.sh \
     --user 10000 \
     --group 233 \
-    -- "$@"
+    -- java

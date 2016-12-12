@@ -10,3 +10,5 @@ RUN apt-get update && apt-get install -y sudo
 RUN echo "jenkins ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/jenkins
 
 USER 10000
+
+COPY entrypoint.sh /opt/bin/entrypoint.sh
