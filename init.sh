@@ -1,6 +1,6 @@
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-sudo mkdir -p /opt/bin
+sudo mkdir -p /opt/bin /opt/jenkins
 
 sudo cp "$DIR/rkt-run-java" /opt/bin/java
 sudo chmod 500 /opt/bin/java
